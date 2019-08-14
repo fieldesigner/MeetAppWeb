@@ -14,6 +14,7 @@ const schema = Yup.object().shape({
   description: Yup.string().required('A descrição é obrigatória'),
   location: Yup.string().required('A localização é obrigatória'),
   id_image: Yup.number(),
+  date: Yup.date(),
 });
 
 export default function CadEdit() {
