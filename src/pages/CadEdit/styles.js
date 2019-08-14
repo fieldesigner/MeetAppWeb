@@ -4,9 +4,11 @@ export const Container = styled.div`
   max-width: 959px;
   margin: 30px auto;
   position: relative;
-
   form {
-    input {
+    display: block;
+    input,
+    textarea {
+      width: 100%;
       background: rgba(0, 0, 0, 0.1);
       border: 0;
       border-radius: 4px;
@@ -14,39 +16,22 @@ export const Container = styled.div`
       padding: 0 15px;
       color: #fff;
       margin: 0 0 10px;
-      display: block;
-      width: 100%;
-      position: relative;
+
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
       }
     }
-
-    hr {
-      border: 0;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.1);
-      margin: 20px 0;
+    textarea {
+      height: 130px;
+      padding-top: 10px;
     }
-
-    span {
-      color: #fb6f91;
-      align-self: flex-end;
-      text-transform: uppercase;
-      font-size: 9px;
-      position: absolute;
-      margin-top: -25px;
-      right: 0;
-      padding: 0 5px;
-      margin-bottom: -11px;
-    }
-
-    button {
+    button[type='submit'] {
+      position: relative;
       float: right;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 5px 0 0;
+      margin: 5px 0 0 10px;
       background: #f84d69;
       border: 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -65,5 +50,9 @@ export const Container = styled.div`
         margin-right: 8px;
       }
     }
+  }
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    width: 100%;
   }
 `;

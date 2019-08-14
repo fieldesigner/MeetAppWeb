@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 880px;
+  max-width: 959px;
   margin: 30px auto;
   position: relative;
 
@@ -45,6 +45,26 @@ export const Container = styled.div`
       svg {
         margin-right: 8px;
       }
+    }
+  }
+  img {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  p {
+    color: #fff;
+  }
+  footer {
+    display: inline-block;
+    margin: 30px 0 50px 0;
+    div {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.5);
+      margin-right: 25px;
     }
   }
 `;

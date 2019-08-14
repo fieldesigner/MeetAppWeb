@@ -20,8 +20,13 @@ export default createGlobalStyle`
   }
   body{
     -webkit-font-smoothing: antialiased;
+    background: #201E2A;
+    display: flex;
+    width: 100%;
   }
-  body, input, button{
+  .clear{clear: both}
+  #root{ margin-bottom: 20px; display: block; width:100% }
+  body, input, button, textarea{
     font: 14px 'Roboto', sans-serif;
   }
   a{ text-decoration: none; }
