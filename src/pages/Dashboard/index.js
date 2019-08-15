@@ -4,6 +4,7 @@ import pt from 'date-fns/locale/pt';
 import { MdChevronRight, MdPlayCircleOutline } from 'react-icons/md';
 // import api from '~/services/api';
 import { Link } from 'react-router-dom';
+import history from '~/services/history';
 import { Container, Meetup } from './styles';
 import api from '~/services/api';
 
@@ -34,11 +35,15 @@ export default function Dashboard() {
     loadMeetups();
   }, [meetups]);
 
+  function handleCreate() {
+    history.push('/create');
+  }
+
   return (
     <Container>
       <header>
         <h1>Meus meetups</h1>
-        <button type="button">
+        <button type="button" onClick={() => handleCreate()}>
           <MdPlayCircleOutline size={20} color="#fff" />
           Novo meetup
         </button>

@@ -41,7 +41,7 @@ export default function Details({ match }) {
   }, [id]);
 
   function handleEditEvent() {
-    history.push(`/meetups/${id}/edit`);
+    history.push(`/edit/${id}`);
   }
 
   async function handleDelEvent(meetupId) {

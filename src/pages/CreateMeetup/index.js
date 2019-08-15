@@ -4,9 +4,10 @@ import * as Yup from 'yup';
 import { MdControlPoint } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
+import { subDays } from 'date-fns';
 import { Container } from './styles';
 // import DateInput from '~/components/Datepicker';
-import BannerInput from './BannerInput';
+import BannerInput from '~/components/BannerInput';
 import history from '~/services/history';
 import api from '~/services/api';
 
@@ -20,24 +21,24 @@ const schema = Yup.object().shape({
   date: Yup.date(),
 });
 
-export default function CadEdit() {
+export default function CreateMeetup() {
   const [startDate, setDate] = useState(new Date());
   function handleChange(date) {
     setDate(date);
   }
 
   async function handleSubmit(data) {
-    console.tron.log(data);
+    // console.tron.log(data);
     try {
       const send = {
         ...data,
-        date: '2019-08-15T20:00:00-03:00',
+        date: startDate,
       };
       await api.post('meetups', send);
       toast.success('Meetup criado com sucesso');
       history.push('/');
     } catch (err) {
-      console.tron.log(err);
+      // console.tron.log(err);
       toast.error('Erro ao gravar, tente novamente');
     }
   }
@@ -59,6 +60,7 @@ export default function CadEdit() {
           timeIntervals={15}
           dateFormat="MMMM d, yyyy h:mm aa"
           timeCaption="time"
+          minDate={subDays(new Date(), 0)}
         />
         <button type="submit">
           <MdControlPoint size={20} color="#fff" />
