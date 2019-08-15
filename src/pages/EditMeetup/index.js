@@ -27,7 +27,6 @@ export default function EditeMeetup({ match }) {
   const [loading, setLoading] = useState(true);
 
   const [startDate, setDate] = useState();
-  console.tron.log(startDate);
 
   useEffect(() => {
     // eslint-disable-next-line
@@ -37,12 +36,10 @@ export default function EditeMeetup({ match }) {
         setMeetup({
           ...response.data,
           date: new Date(response.data.date),
-          banner: response.data.File.url,
+          url: response.data.File.url,
         });
 
         setLoading(false);
-
-        // return response.data;
       } catch (error) {
         toast.error('Evento inexistente');
         history.push('/');
@@ -56,18 +53,17 @@ export default function EditeMeetup({ match }) {
     setDate(date);
   }
   async function handleSubmit(data) {
-    // console.tron.log(data);
     try {
       const send = {
         ...data,
         date: startDate,
       };
-      await api.post('meetups', send);
-      toast.success('Meetup criado com sucesso');
-      history.push('/');
+      console.tron.log(send);
+      await api.put(`/meetups/${id}`, send);
+      toast.success('Meetup atualizado com sucesso');
     } catch (err) {
       // console.tron.log(err);
-      toast.error('Erro ao gravar, tente novamente');
+      toast.error('Erro ao atualizar, tente novamente');
     }
   }
 
@@ -77,8 +73,7 @@ export default function EditeMeetup({ match }) {
         <div>carregando</div>
       ) : (
         <Container>
-          <Form schema={schema} initialData={meetup} onSubmit={handleSubmit}>
-            {meetup.banner}
+          <Form initialData={meetup} schema={schema} onSubmit={handleSubmit}>
             <BannerInput name="id_image" />
 
             <Input name="title" type="text" placeholder="Titulo do evento" />

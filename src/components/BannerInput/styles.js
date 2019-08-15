@@ -5,6 +5,7 @@ export const Container = styled.div`
   border: 0;
   border-radius: 4px;
   margin-bottom: 10px;
+
   label {
     display: block;
     text-align: center;

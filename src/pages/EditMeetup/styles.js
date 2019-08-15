@@ -55,7 +55,6 @@ export const Container = styled.div`
       border-radius: 5px;
       width: 100%;
       height: auto;
-      margin-bottom: 20px;
     }
   }
   .react-datepicker-wrapper,

@@ -5,8 +5,8 @@ import api from '~/services/api';
 import { Container } from './styles';
 
 export default function BannerInput() {
-  const { defaultValue, registerField } = useField('file');
-
+  const { defaultValue, registerField } = useField('File');
+  // console.tron.log(defaultValue);
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);
 
@@ -32,9 +32,10 @@ export default function BannerInput() {
     setFile(id);
     setPreview(url);
   }
+
   return (
     <Container>
-      <label htmlFor="banner">
+      <label htmlFor="File">
         {preview ? (
           <img src={preview} alt="Banner do Meetup" />
         ) : (
@@ -45,7 +46,7 @@ export default function BannerInput() {
         )}
         <input
           type="file"
-          id="banner"
+          id="File"
           accept="image/*"
           data-file={file}
           onChange={handleChange}
