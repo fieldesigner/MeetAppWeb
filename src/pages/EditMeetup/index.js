@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import DatePicker from 'react-datepicker';
 import { subDays } from 'date-fns';
 import { Container } from './styles';
-// import DateInput from '~/components/Datepicker';
 import BannerInput from '~/components/BannerInput';
 import history from '~/services/history';
 import api from '~/services/api';
@@ -80,12 +79,8 @@ export default function EditeMeetup({ match }) {
         <Container>
           <Form schema={schema} initialData={meetup} onSubmit={handleSubmit}>
             {meetup.banner}
-            <BannerInput name="id_image" file={meetup.banner} />
-            {/* meetup.File.url ? (
-              <img src={meetup.File.url} alt={meetup.title} />
-            ) : (
-              <BannerInput name="id_image" />
-            ) */}
+            <BannerInput name="id_image" />
+
             <Input name="title" type="text" placeholder="Titulo do evento" />
             <Input
               multiline
